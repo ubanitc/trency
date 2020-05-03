@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <script type="text/javascript">
+      $(window).on("load", function () {
+        $("#myModal").modal("show");
+      });
+    </script>
+    <style>
+      body {
+        background: #efeff7;
+      }
+    </style>
+
+    <title>TrencyTech</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary pl-right mb-3">
+      <div class="container">
+        <a class="navbar-brand" href="index.php"><b>TrencyTech</b></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ml-auto">
+            <a class="nav-item nav-link active" href="index.php"
+              >Home <span class="sr-only">(current)</span></a
+            >
+
+            <?php if(isset($message)){
+                                      ?>
+            <a
+              class="nav-item nav-link"
+              style="color: white;"
+              href="withdrawal.php"
+              >Earning/Withdrawal</a
+            >
+            <a
+              class="nav-item nav-link"
+              style="color: white;"
+              href="profile.php"
+              >Profile</a
+            >
+            <a class="nav-item nav-link" style="color: white;" href="Logout.php"
+              >Logout</a
+            >
+
+            <?php }else{?>
+            <a class="nav-item nav-link" style="color: white;" href="login.php"
+              >Login</a
+            >
+            <a
+              style="color: white;"
+              class="nav-item nav-link"
+              href="register.php"
+              >Register</a
+            >
+            <?php } ?>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </body>
+</html>
