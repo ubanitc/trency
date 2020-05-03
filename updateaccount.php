@@ -20,11 +20,11 @@ if(isset($_SESSION['userid'])){
 $sql = $pdo->prepare('UPDATE users SET acctno=:body, bank=:phone WHERE id = :id');
 
  $postss = $sql->execute(['id'=>$userid,'body'=>$dpname, 'phone'=>$phoneno]); 
- header("location:profile.php");  
+ header("location:http://trencynews.herokuapp.com/profile.php");  
  } 
 
 }else{
-        header('location:login.php');
+        header('location:http://trencynews.herokuapp.com/login.php');
     }
 ?>
 
