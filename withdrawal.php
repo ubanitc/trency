@@ -124,9 +124,11 @@ if(isset($_SESSION['userid'])){
     if($withdrawsamt > $cashout){
       $failurenotify = "You can not Withdraw that Ammount";
       $_SESSION['failurenotify'] = $failurenotify;
+            header("location:withdrawal.php");
     }elseif($withdrawsamt < $limit ){
           $failurenotify1 = "you can withdraw a minimum of &#8358 3,000";
           $_SESSION['failurenotify1'] = $failurenotify1;
+            header("location:withdrawal.php");
     }else{
     // $putpend = (int)( $cashout - $withdrawsamt);  
 
