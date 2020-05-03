@@ -46,7 +46,7 @@ if(isset($_POST['register'])){
 
 
         
-            header("location:login.php");
+            header("location:http://trencynews.herokuapp.com/login.php");
         }
     }
     
@@ -88,14 +88,12 @@ if(isset($_POST['register'])){
                             <?php } ?>
                                         <label for="phoneno">Phone Number</label>
 
-                                        <div class="input-group mb-2 mr-sm-2">
+<div class="input-group mb-2 mr-sm-2">
                                         <div class="input-group-prepend">
                                         <div class="input-group-text">+234</div>
                                         </div>
                                         <input type="number" name="phoneno" class="form-control" required value="<?php if(isset($phoneno)){echo $phoneno;} ?>">
-                                    </div>
-
-                </div>
+                                    </div>                </div>
           
             <div class="form-group">
                 <label for="password">password</label>
