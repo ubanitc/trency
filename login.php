@@ -14,7 +14,7 @@ if(isset($_POST['login'])){
         if(isset($user)){
             if(password_verify($password,$user->password)){
                 $_SESSION['userid']=$user->id;
-                header('location: http://localhost/img/index.php'); 
+                header('location: http://trencynews.herokuapp.com/'); 
             }else{
                 $incorrectpass ="The login Username or Password is incorrect";
             }
