@@ -76,8 +76,19 @@ if(isset($_SESSION['userid'])){
 
         <div class="card-body">
                 <h4>Affiliate Link:</h4>
-                <p>http://trencynews.herokuapp.com/register.php?refid=<?php echo $user->name?></p>
-                <div class="sharethis-inline-share-buttons"></div>
+                <input class="form-control mb-3"type="text" value="https://www.trencynews.com/register.php?refid=<?php echo $user->name?>" id="myInput">
+<button onclick="myFunction()" class="btn btn-info" id="p1">Copy Refferal ID</button>
+
+
+<script>
+function myFunction() {
+  var copyText = document.getElementById("myInput");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+  document.getElementById("p1").innerHTML = "Copied!!!";
+}
+</script>
         </div>
 </div>
 
