@@ -207,6 +207,11 @@ try {
     echo '<p>', $e->getMessage(), '</p>';
 }
 ?>
+        <div class="container">
+<div class="d-flex bd-highlight mt-3" style="height:70px">
+  <div class="p-2 flex-fill bd-highlight border border-primary mr-2">Ad Space</div>
+  </div>
+</div>
 <!-- end pagination -->
 <!-- end pagination -->
 <!-- end pagination -->
