@@ -91,37 +91,126 @@ if(isset($_SESSION['userid'])){
 
         ?>
       </div>
-      <div class="container mb-2">
       <div class="card">
-          <div class="card-body ">
+          <div class="card-text pt-2 pl-2">
                 <p>Number of Registered Users: <?php echo $tham ?> </p>
-          </div>
-      </div>
       </div>
     </div>
-
+</div>
     <div class="container">
 <div class="d-flex bd-highlight mb-3" style="height:70px">
   <div class="p-2 flex-fill bd-highlight border border-primary mr-2">Ad Space</div>
   </div>
 </div>
+<div class="container">
     <?php
     
-            $stmt = $pdo->query("SELECT * FROM posts ORDER BY id DESC");
-            $posts = $stmt->fetchAll(); ?>
-            <div class="container">
-<div class="card rounded-lg">
-    <div class="card-header text-center">
-            <strong>NEWS</strong>
-    </div>
-    <div class="card-body text-center">
-           <?php foreach($posts as $post){?>
-                
-              <strong >  <a href="/post.php?id=<?php echo $post->id ?>" ><p class="mb-2">><?php echo $post->post_title."<<<br>"?></p></a> </strong>
+            
 
-            <?php }?>
-</div>
-</div>
+
+try {
+
+    // Find out how many items are in the table
+    $total = $pdo->query('
+        SELECT
+            COUNT(*)
+        FROM
+            posts
+    ')->fetchColumn();
+
+    // How many items to list per page
+    $limit = 3;
+
+    // How many pages will there be
+    $pages = ceil($total / $limit);
+
+    // What page are we currently on?
+    $page = min($pages, filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT, array(
+        'options' => array(
+            'default'   => 1,
+            'min_range' => 1,
+        ),
+    )));
+
+    // Calculate the offset for the query
+    $offset = ($page - 1)  * $limit;
+
+    // Some information to display to the user
+    $start = $offset + 1;
+    $end = min(($offset + $limit), $total);
+
+    // The "back" link
+   
+
+    // Prepare the paged query
+    $stmt = $pdo->prepare('
+        SELECT
+            *
+        FROM
+            posts
+        ORDER BY
+            id DESC
+        LIMIT
+            :limit
+        OFFSET
+            :offset
+    ');
+
+    // Bind the query params
+    $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+    $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
+    $stmt->execute();
+
+    // Do we have any results?
+    if ($stmt->rowCount() > 0) {
+        // Define how we want to fetch the results
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $iterator = new IteratorIterator($stmt); ?>
+
+        <!-- Display the results -->
+        <div class="card rounded-lg">
+            <div class="card-header text-center">
+                <strong>NEWS</strong>
+            </div>
+            <div class="card-body text-center">
+                
+       <?php foreach ($iterator as $row) {
+           
+           $stmt = $pdo->query("SELECT * FROM posts ORDER BY id DESC");
+
+            $posts = $stmt->fetchAll();
+           
+           
+           ?>
+          
+                
+              <strong >  <a href="/post.php?id=<?php echo $row['id'] ?>" ><p class="mb-2">><?php echo $row['post_title']."<<<br>"?></p></a> </strong>
+
+            
+
+              <?php }?>
+            </div>
+        </div>
+    <?php } else {
+        echo '<p>No results could be displayed.</p>';
+    }?>
+    <div class="card-footer text-center">
+
+<?php
+
+    for($x=1; $x <= $pages; $x++){?>
+    <a href="?page=<?php echo $x ?>">(<?php echo $x?>)</a>
+   <?php }?>
+   </div>
+<?php 
+} catch (Exception $e) {
+    echo '<p>', $e->getMessage(), '</p>';
+}
+?>
+<!-- end pagination -->
+<!-- end pagination -->
+<!-- end pagination -->
+<!-- end pagination -->
 </div>
 
 
