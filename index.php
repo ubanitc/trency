@@ -119,7 +119,7 @@ try {
     ')->fetchColumn();
 
     // How many items to list per page
-    $limit = 3;
+    $limit = 20;
 
     // How many pages will there be
     $pages = ceil($total / $limit);
