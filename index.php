@@ -32,7 +32,7 @@ if(isset($_SESSION['userid'])){
 
         <?php if(isset($message)){
             ?>
-         <h5>Welcome <?php echo $user->dpname ?></h5>
+         <h5>Welcome <?php echo ucwords($user->dpname) ?></h5>
         </div>
                 <?php if( $user->acctno === "" or $user->bank === '') { ?>
                 
