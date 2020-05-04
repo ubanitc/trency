@@ -70,7 +70,7 @@ if(isset($_SESSION['userid'])){
           <?php if(isset($message)){
             ?>
 <!--          <h5>This is a super secret content for only logged in people</h5> -->
-            <?php if($user->status === 'inactive'){?>
+            <?php   if($user->status === 'inactive'){?>
                     <div class="card mb-2">
                         <div class="card-body">
 
@@ -85,9 +85,7 @@ if(isset($_SESSION['userid'])){
             $stmt = $pdo->query("SELECT * FROM users WHERE status ='active' ");
             $act = $stmt->fetchAll();
             $tham = $stmt->rowCount();
-                        $stmt = $pdo->query("SELECT * FROM users WHERE status ='inactive' ");
-                                    $act1 = $stmt->fetchAll();
-                                                $tham1 = $stmt->rowCount();
+                        
 
 
 
@@ -96,7 +94,7 @@ if(isset($_SESSION['userid'])){
       <div class="container mb-2">
       <div class="card">
           <div class="card-body ">
-                <p>Number of Registered Users:<span class="mr-2 ml-2" style="color:green"> Active-: <?php echo $tham ?> </span><span style="color:red"> Incative-:<?php echo $tham1 ?></span></p>
+                <p>Number of Registered Users: <?php echo $tham ?> </p>
           </div>
       </div>
       </div>
