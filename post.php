@@ -46,12 +46,7 @@ require("./inc/header.html");
                 echo $post->post_content;
 
              ?>
-             <p class="mt-3">
-             <iframe height="auto" width="auto"  
-src="https://ww
-w.youtube.com/embed/il_t1WVLNxk"> 
-</iframe>
-</p>
+             
         </div>
 </div>
 </div>
