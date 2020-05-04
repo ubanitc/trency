@@ -77,6 +77,7 @@ if(isset($_SESSION['userid'])){
         <div class="card-body">
                 <h4>Affiliate Link:</h4>
                 <p>http://trencynews.herokuapp.com/register.php?refid=<?php echo $user->name?></p>
+                <div class="sharethis-inline-share-buttons"></div>
         </div>
 </div>
 
