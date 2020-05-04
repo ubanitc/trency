@@ -170,7 +170,7 @@ try {
         <!-- Display the results -->
         <div class="card rounded-lg">
             <div class="card-header text-center">
-                <strong>NEWS</strong>
+                <strong>NEWS UPDATES</strong>
             </div>
             <div class="card-body text-center">
                 
