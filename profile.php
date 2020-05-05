@@ -76,7 +76,7 @@ if(isset($_SESSION['userid'])){
 
         <div class="card-body">
                 <h4>Affiliate Link:</h4>
-                <input class="form-control mb-3"type="text" value="https://www.trencynews.herokuapp.com/register.php?refid=<?php echo $user->name?>" id="myInput">
+                <input class="form-control mb-3"type="text" value="https://trencynews.herokuapp.com/register.php?refid=<?php echo $user->name?>" id="myInput">
 <button onclick="myFunction()" class="btn btn-info" id="p1">Copy Refferal ID</button>
 
 
