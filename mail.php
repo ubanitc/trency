@@ -4,17 +4,17 @@
 
             $mail = new PHPMailer;
 
-//$mail->SMTPDebug = 3;                               // Enable verbose debug output
+// $mail->SMTPDebug = 3;                               // Enable verbose debug output
 
 $mail->isSMTP();                                      // Set mailer to use SMTP
-$mail->Host = 'smtp.mail.yahoo.com';  // Specify main and backup SMTP servers
+$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
-$mail->Username = 'tochukwu.ubani@yahoo.com';                 // SMTP username
-$mail->Password = 'registeration';                           // SMTP password
-$mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
-$mail->Port = 465;                                    // TCP port to connect to
+$mail->Username = 'tochukwu.ubani@gmail.com';                 // SMTP username
+$mail->Password = 'Exhibit911@';                           // SMTP password
+$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+$mail->Port = 587;                                    // TCP port to connect to
 
-$mail->setFrom('tochukwu.ubani@gmail.com', 'Mailer');
+$mail->setFrom('tochukwu.ubani@gmail.com', 'TrencyNews');
 $mail->addAddress('tochukwu.ubani@yahoo.com');     // Add a recipient
 
 $mail->isHTML(true);                                  // Set email format to HTML
