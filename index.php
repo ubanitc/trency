@@ -93,7 +93,7 @@ if(isset($_SESSION['userid'])){
       </div>
       <div class="card">
           <div class="card-text pt-2 pl-2">
-                <p>Number of Registered Users: <?php echo $tham ?> </p>
+                <p>Registered Users: <?php echo $tham ?> </p>
       </div>
     </div>
 </div>
