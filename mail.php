@@ -11,7 +11,7 @@ $mail->Host = 'smtp.mail.yahoo.com';  // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
 $mail->Username = 'tochukwu.ubani@yahoo.com';                 // SMTP username
 $mail->Password = 'registeration';                           // SMTP password
-$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+$mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
 $mail->Port = 587;                                    // TCP port to connect to
 
 $mail->setFrom('tochukwu.ubani@gmail.com', 'Mailer');
