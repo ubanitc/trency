@@ -9,12 +9,12 @@
 $mail->isSMTP();                                      // Set mailer to use SMTP
 $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
-$mail->Username = 'tochukwu.ubani@gmail.com';                 // SMTP username
+$mail->Username = 'billharris7431@gmail.com';                 // SMTP username
 $mail->Password = 'Exhibit911@';                           // SMTP password
 $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 $mail->Port = 587;                                    // TCP port to connect to
 
-$mail->setFrom('tochukwu.ubani@gmail.com', 'TrencyNews');
+$mail->setFrom('billharris7431@gmail.com', 'TrencyNews');
 $mail->addAddress('tochukwu.ubani@yahoo.com');     // Add a recipient
 
 $mail->isHTML(true);                                  // Set email format to HTML
