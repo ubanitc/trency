@@ -4,11 +4,11 @@ require("./db.php");
 if(isset($_POST['register'])){
     $dpname = strtolower(filter_var($_POST['dpname'],FILTER_SANITIZE_STRING));
     $phoneno = strtolower(filter_var($_POST['phoneno'],FILTER_SANITIZE_STRING));
-    $username = strtolower(filter_var($_POST['username'],FILTER_SANITIZE_STRING));
+    $username1 = strtolower(filter_var($_POST['username'],FILTER_SANITIZE_STRING));
     $refids = strtolower(filter_var($_POST['refid'],FILTER_SANITIZE_STRING));
     $useremail = strtolower(filter_var($_POST['useremail'],FILTER_SANITIZE_EMAIL));
-    $password = filter_var($_POST['password'],FILTER_SANITIZE_STRING);
-    $passwordhashed = password_hash($password,PASSWORD_DEFAULT);
+    $password1 = filter_var($_POST['password'],FILTER_SANITIZE_STRING);
+    $password1hashed = password_hash($password1,PASSWORD_DEFAULT);
     
     if(filter_var($useremail,FILTER_VALIDATE_EMAIL)){
         $sql= "SELECT * FROM users WHERE email= :email";
@@ -18,7 +18,7 @@ if(isset($_POST['register'])){
         
         $sql= "SELECT * FROM users WHERE name= :username ";
         $stmt = $pdo->prepare($sql);
-        $beat = $stmt->execute(['username'=>$username]);
+        $beat = $stmt->execute(['username'=>$username1]);
         $totalusers1 = $stmt->rowCount();
         
         if($totalusers > 0 ){
@@ -38,7 +38,7 @@ if(isset($_POST['register'])){
         else{
             $sql= "INSERT INTO users (dpname,name, email, password,phoneno,refferedme) VALUES (:dpname,:name,:email,:password,:phoneno,:refferedme)";
             $stmt = $pdo->prepare($sql);
-            $stmt->execute(['dpname'=>$dpname,'name'=>$username,'email'=>$useremail,'password'=>$passwordhashed,'phoneno'=>$phoneno,'refferedme'=>$refids]);
+            $stmt->execute(['dpname'=>$dpname,'name'=>$username1,'email'=>$useremail,'password'=>$password1hashed,'phoneno'=>$phoneno,'refferedme'=>$refids]);
             
             
 
@@ -46,7 +46,7 @@ if(isset($_POST['register'])){
 
 
         
-            header("location:http://trencynews.herokuapp.com/login.php");
+            header("location:login.php");
         }
     }
     
@@ -73,7 +73,7 @@ if(isset($_POST['register'])){
                         <p style="color: red;"> <?php echo $nametaken ?></p>
                         <?php } ?>
                         <label for="username">Username</label>
-                        <input type="text" name="username" class="form-control" required value="<?php if(isset($username)){echo $username;} ?>">
+                        <input type="text" name="username" class="form-control" required value="<?php if(isset($username1)){echo $username1;} ?>">
                     </div>
                     <div class="form-group">
                         <?php if(isset($emailtaken)){ ?>
@@ -88,16 +88,18 @@ if(isset($_POST['register'])){
                             <?php } ?>
                                         <label for="phoneno">Phone Number</label>
 
-<div class="input-group mb-2 mr-sm-2">
+                                        <div class="input-group mb-2 mr-sm-2">
                                         <div class="input-group-prepend">
                                         <div class="input-group-text">+234</div>
                                         </div>
                                         <input type="number" name="phoneno" class="form-control" required value="<?php if(isset($phoneno)){echo $phoneno;} ?>">
-                                    </div>                </div>
+                                    </div>
+
+                </div>
           
             <div class="form-group">
                 <label for="password">password</label>
-                <input input type="password" class="form-control" name="password" minlength="8" required required title="Password must be a minimum of 7 characters" value="<?php if(isset($password)){echo $password;} ?>">
+                <input input type="password" class="form-control" name="password" minlength="8" required required title="Password must be a minimum of 7 characters" value="<?php if(isset($password1)){echo $password1;} ?>">
             </div>
             <div class="form-group">
                 <label for="refid">Refferal ID</label>
