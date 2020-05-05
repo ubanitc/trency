@@ -12,7 +12,7 @@ $mail->SMTPAuth = true;                               // Enable SMTP authenticat
 $mail->Username = 'tochukwu.ubani@gmail.com';                 // SMTP username
 $mail->Password = 'Exhibit911@';                           // SMTP password
 $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-$mail->Port = 587;                                    // TCP port to connect to
+$mail->Port = 465;                                    // TCP port to connect to
 
 $mail->setFrom('tochukwu.ubani@gmail.com', 'Mailer');
 $mail->addAddress('tochukwu.ubani@yahoo.com');     // Add a recipient
