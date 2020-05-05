@@ -250,7 +250,7 @@ background-color: #FF6600
         <div class="card-body text-center">
                 <h4>Affiliate Link:</h4>
                 
-                <input class="form-control mb-3"type="text" value="https://www.trencynews.com/register.php?refid=<?php echo $user->name?>" id="myInput">
+                <input class="form-control mb-3"type="text" value="https://www.trencynews.com/register.php?refid=<?php echo $user->name?>" id="myInput" readonly>
 <button onclick="myFunction()" class="btn btn-info mb-3" id="p1">Copy Refferal ID</button>
 
 
